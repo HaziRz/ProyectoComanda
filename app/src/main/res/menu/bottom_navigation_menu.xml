@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_menu"
+        android:enabled="true"
+        android:icon="@drawable/menu_book"
+        android:title="@string/menu_menuText"/>
+    <item
+        android:id="@+id/menu_actualOrder"
+        android:enabled="true"
+        android:icon="@drawable/receipt_long"
+        android:title="@string/menu_actualOrderText"/>
+</menu>

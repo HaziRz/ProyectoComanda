@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ProyectoComanda</string>
+    <string name="title">RESTAURANTE</string>
+    <string name="menu_menuText">Menú</string>
+    <string name="menu_actualOrderText">Orden Actual</string>
+    <string name="menu_dishesText">Platillos</string>
+</resources>
