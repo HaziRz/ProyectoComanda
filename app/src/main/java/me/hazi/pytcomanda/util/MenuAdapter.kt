@@ -23,10 +23,10 @@ class MenuAdapter(private val items: List<MenuItem>) : BaseAdapter() {
         view.findViewById<TextView>(R.id.txtName).text = item.name
         view.findViewById<TextView>(R.id.txtPrice).text = "$${item.price}"
 
-        val imageView = view.findViewById<ImageView>(R.id.imgItem)
+        /*val imageView = view.findViewById<ImageView>(R.id.imgItem)
         if (item.imageRes != 0) {
             imageView.setImageResource(item.imageRes)
-        }
+        }*/
 
         return view
     }
