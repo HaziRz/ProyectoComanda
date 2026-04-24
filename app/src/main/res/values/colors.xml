@@ -11,4 +11,5 @@
     <color name="bg_card">#242019</color>
     <color name="text_light">#A89880</color>
     <color name="bg_table_title">#3C332A</color>
+    <color name="border_card">#3A3228</color>
 </resources>

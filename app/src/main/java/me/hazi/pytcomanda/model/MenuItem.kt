@@ -6,4 +6,7 @@ data class MenuItem(
     val price: Double,
     val imageRes: Int = 0,
     val quantity: Int = 0
-)
+) {
+    val total: Double
+    get() = quantity * price
+}

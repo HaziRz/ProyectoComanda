@@ -27,43 +27,52 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
+        android:background="@color/bg_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView">
+        app:layout_constraintTop_toBottomOf="@+id/textView" >
 
         <TableRow
             android:id="@+id/tableOrder_title"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="@color/bg_table_title">
+            android:layout_height="wrap_content"
+            android:background="@color/bg_table_title"
+            android:padding="8dp">
 
             <TextView
-                android:layout_column="1"
-                android:layout_marginEnd="8dp"
+                android:layout_width="0dp"
+                android:layout_weight="2"
                 android:fontFamily="@font/lexend_medium"
                 android:text="@string/order_table_titleItemText"
                 android:textColor="@color/text_light"
                 android:textSize="14sp" />
 
             <TextView
-                android:layout_column="2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:fontFamily="@font/lexend_medium"
                 android:text="@string/order_table_titleAmountText"
                 android:textColor="@color/text_light"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:gravity="center" />
 
             <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:fontFamily="@font/lexend_medium"
                 android:text="@string/order_table_titlePriceText"
                 android:textColor="@color/text_light"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:gravity="end" />
 
             <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:fontFamily="@font/lexend_medium"
-                android:gravity="right"
                 android:text="@string/order_table_titleTotalText"
                 android:textColor="@color/text_light"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                android:gravity="end" />
         </TableRow>
 
     </TableLayout>
