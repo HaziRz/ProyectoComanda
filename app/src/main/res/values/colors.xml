@@ -9,4 +9,6 @@
     <color name="item_nofocus_color">#737373</color>
     <color name="orange_indicator">#33FFB963</color>
     <color name="bg_card">#242019</color>
+    <color name="text_light">#A89880</color>
+    <color name="bg_table_title">#3C332A</color>
 </resources>

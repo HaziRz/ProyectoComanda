@@ -4,4 +4,11 @@
     <string name="menu_menuText">Menú</string>
     <string name="menu_actualOrderText">Orden Actual</string>
     <string name="menu_dishesText">Platillos</string>
+    <string name="order_resumeText">RESUMEN DE ORDEN</string>
+    <string name="menu_orderBtnText">ORDENAR</string>
+    <string name="menu_orderBtnSecondaryText">NUEVA ORDEN</string>
+    <string name="order_table_titleItemText">ITEM</string>
+    <string name="order_table_titleAmountText">CANT.</string>
+    <string name="order_table_titlePriceText">PRECIO</string>
+    <string name="order_table_titleTotalText">TOTAL</string>
 </resources>

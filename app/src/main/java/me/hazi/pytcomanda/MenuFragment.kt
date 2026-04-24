@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.GridView
+import androidx.appcompat.view.ContextThemeWrapper
+import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
+import com.google.android.material.button.MaterialButton
 import me.hazi.pytcomanda.data.MenuData
 
 class MenuFragment : Fragment(R.layout.menu_fragment) {
@@ -24,6 +27,32 @@ class MenuFragment : Fragment(R.layout.menu_fragment) {
 
         val adapter = MenuAdapter(MenuData.items)
         gridView.adapter = adapter
+
+        val btnMore: MaterialButton = view.findViewById(R.id.btnOrderMore)
+        btnMore.setOnClickListener { v ->
+            val wrapper = ContextThemeWrapper(requireContext(), R.style.Theme_App_PopupMenu)
+            val popup = PopupMenu(wrapper, v)
+            popup.menuInflater.inflate(R.menu.order_options_menu, popup.menu)
+
+            popup.setOnDismissListener {
+                btnMore.isChecked = false
+            }
+
+            popup.setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.option_new -> {
+                        true
+                    }
+                    else -> false
+                }
+            }
+            popup.show()
+        }
+
+        val btnOrder: View = view.findViewById(R.id.btnOrderMain)
+        btnOrder.setOnClickListener {
+
+        }
     }
 
 }
