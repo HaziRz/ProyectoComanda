@@ -30,7 +30,7 @@
         android:background="@color/bg_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" >
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <TableRow
             android:id="@+id/tableOrder_title"
@@ -74,6 +74,21 @@
                 android:textSize="14sp"
                 android:gravity="end" />
         </TableRow>
-
     </TableLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="16dp"
+        app:cardBackgroundColor="@color/bg_card"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableOrder"
+        app:strokeColor="@color/border_card"
+        app:strokeWidth="1dp"
+        style="?attr/materialCardViewFilledStyle" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
