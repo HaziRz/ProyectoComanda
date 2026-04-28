@@ -15,4 +15,5 @@
     <string name="order_info_ivaText">IVA 16%</string>
     <string name="order_info_totalText">TOTAL A PAGAR</string>
     <string name="order_payText">Proceder al Pago</string>
+    <string name="menu_orderBtnCancelText">Cancelar Orden</string>
 </resources>

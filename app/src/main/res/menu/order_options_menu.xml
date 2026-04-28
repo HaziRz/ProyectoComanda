@@ -2,5 +2,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/option_new"
-        android:title="Cancelar Orden"/>
+        android:title="@string/menu_orderBtnCancelText"/>
 </menu>

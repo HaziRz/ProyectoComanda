@@ -10,9 +10,11 @@ import android.view.ViewGroup
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.button.MaterialButton
 import me.hazi.pytcomanda.data.MenuData
 import me.hazi.pytcomanda.data.MenuItem
 import me.hazi.pytcomanda.util.dpToPx
@@ -39,23 +41,58 @@ class OrderFragment : Fragment(R.layout.order_fragment) {
         populateTable(MenuData.items)
         textOrderDate.text = currentDateTime.format(formatter)
 
-        val textSubTotal = view.findViewById<TextView>(R.id.txtSubtotal)
-        var subtotal: Double = 0.0
+        var subtotal = 0.0
         MenuData.items.forEach { item ->
             subtotal += item.total
         }
+        var iva = subtotal * .16
+        var total = subtotal + iva
+
+        updateTexts(subtotal, iva, total)
+
+        val buttonCheckout = view.findViewById<MaterialButton>(R.id.btnCheckout)
+        buttonCheckout.setOnClickListener {
+            MenuData.items.forEach { item ->
+                item.quantity = 0
+            }
+            subtotal = 0.0
+            iva = 0.0
+            total = 0.0
+
+            Toast.makeText(requireContext(), "Orden Pagada", Toast.LENGTH_LONG).show()
+            deleteTableData()
+            populateTable(MenuData.items)
+            updateTexts(subtotal, iva, total)
+
+            (activity as? MainActivity)?.navigateToFragment(R.id.menu_menu)
+
+            /*val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.content, MenuFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()*/
+        }
+    }
+
+    fun updateTexts(subtotal: Double, iva: Double, total: Double) {
+        val textSubTotal = view?.findViewById<TextView>(R.id.txtSubtotal)
+
         val subtotalFormatted = NumberFormat.getCurrencyInstance().format(subtotal)
-        textSubTotal.text = subtotalFormatted
+        textSubTotal?.text = subtotalFormatted
 
-        val textIVA = view.findViewById<TextView>(R.id.txtIVA)
-        val iva = subtotal * .16
+        val textIVA = view?.findViewById<TextView>(R.id.txtIVA)
+
         val ivaFormatted = NumberFormat.getCurrencyInstance().format(iva)
-        textIVA.text = ivaFormatted
+        textIVA?.text = ivaFormatted
 
-        val textTotal = view.findViewById<TextView>(R.id.txtTotal)
-        val total = subtotal + iva
+        val textTotal = view?.findViewById<TextView>(R.id.txtTotal)
+
         val totalFormatted = NumberFormat.getCurrencyInstance().format(total)
-        textTotal.text = totalFormatted
+        textTotal?.text = totalFormatted
+    }
+
+    fun deleteTableData() {
+        val tableLayout = view?.findViewById<TableLayout>(R.id.tableOrder)
+        tableLayout?.removeViews(1, 4)
     }
 
     fun populateTable(items: List<MenuItem>) {

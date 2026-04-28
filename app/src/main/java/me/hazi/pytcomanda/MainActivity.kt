@@ -9,9 +9,11 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var navBarMenu: BottomNavigationView
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
@@ -31,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             replaceFragment(MenuFragment())
         }
 
-        val navBarMenu: BottomNavigationView = findViewById(R.id.navBar)
+        navBarMenu = findViewById(R.id.navBar)
         navBarMenu.setOnItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.menu_menu -> {
@@ -47,7 +49,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun replaceFragment(fragment: androidx.fragment.app.Fragment) {
+    fun navigateToFragment(menuItemId: Int) {
+        navBarMenu.selectedItemId = menuItemId
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.content, fragment)
             .commit()
