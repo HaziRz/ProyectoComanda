@@ -10,6 +10,7 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.fragment.app.Fragment
 import com.google.android.material.button.MaterialButton
 import me.hazi.pytcomanda.data.MenuData
+import me.hazi.pytcomanda.util.MenuAdapter
 
 class MenuFragment : Fragment(R.layout.menu_fragment) {
 
@@ -24,9 +25,20 @@ class MenuFragment : Fragment(R.layout.menu_fragment) {
         super.onViewCreated(view, savedInstanceState)
 
         val gridView: GridView = view.findViewById(R.id.menuItems)
-
         val adapter = MenuAdapter(MenuData.items)
         gridView.adapter = adapter
+        gridView.setOnItemClickListener { _, _, position, _ ->
+            val clickedItem = MenuData.items[position]
+
+            when(clickedItem.id) {
+                1 -> { /* Specific logic for Paella */ }
+                2 -> { /* Specific logic for Lasaña */ }
+                else -> {
+                    // General logic: Add to order, show toast, etc.
+                    println("Clicked: ${clickedItem.name} with ID: ${clickedItem.id}")
+                }
+            }
+        }
 
         val btnMore: MaterialButton = view.findViewById(R.id.btnOrderMore)
         btnMore.setOnClickListener { v ->

@@ -1,7 +1,7 @@
 package me.hazi.pytcomanda
 
-import android.content.res.Resources
 import android.graphics.Color
+import android.icu.text.NumberFormat
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -14,7 +14,8 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import me.hazi.pytcomanda.data.MenuData
-import me.hazi.pytcomanda.model.MenuItem
+import me.hazi.pytcomanda.data.MenuItem
+import me.hazi.pytcomanda.util.dpToPx
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.Locale
@@ -37,6 +38,24 @@ class OrderFragment : Fragment(R.layout.order_fragment) {
         val textOrderDate = view.findViewById<TextView>(R.id.txtOrderDate)
         populateTable(MenuData.items)
         textOrderDate.text = currentDateTime.format(formatter)
+
+        val textSubTotal = view.findViewById<TextView>(R.id.txtSubtotal)
+        var subtotal: Double = 0.0
+        MenuData.items.forEach { item ->
+            subtotal += item.total
+        }
+        val subtotalFormatted = NumberFormat.getCurrencyInstance().format(subtotal)
+        textSubTotal.text = subtotalFormatted
+
+        val textIVA = view.findViewById<TextView>(R.id.txtIVA)
+        val iva = subtotal * .16
+        val ivaFormatted = NumberFormat.getCurrencyInstance().format(iva)
+        textIVA.text = ivaFormatted
+
+        val textTotal = view.findViewById<TextView>(R.id.txtTotal)
+        val total = subtotal + iva
+        val totalFormatted = NumberFormat.getCurrencyInstance().format(total)
+        textTotal.text = totalFormatted
     }
 
     fun populateTable(items: List<MenuItem>) {
@@ -93,7 +112,5 @@ class OrderFragment : Fragment(R.layout.order_fragment) {
             tableLayout?.addView(row)
         }
     }
-
-    fun Int.dpToPx(): Int = (this * Resources.getSystem().displayMetrics.density).toInt()
 
 }
