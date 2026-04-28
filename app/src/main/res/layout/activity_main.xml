@@ -60,6 +60,8 @@
         android:layout_height="wrap_content"
         android:background="@color/bg_dark"
         app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
+        app:itemTextAppearanceActive="@style/App.BottomNav.TextAppearance"
+        app:itemTextAppearanceInactive="@style/App.BottomNav.TextAppearance"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

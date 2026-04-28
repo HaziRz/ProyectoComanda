@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">ProyectoComanda</string>
     <string name="title">RESTAURANTE</string>
-    <string name="menu_menuText">Menú</string>
-    <string name="menu_actualOrderText">Orden Actual</string>
+    <string name="menu_menuText">MENÚ</string>
+    <string name="menu_actualOrderText">ORDEN ACTUAL</string>
     <string name="menu_dishesText">Platillos</string>
     <string name="order_resumeText">RESUMEN DE ORDEN</string>
     <string name="menu_orderBtnText">ORDENAR</string>
@@ -11,4 +11,8 @@
     <string name="order_table_titleAmountText">CANT.</string>
     <string name="order_table_titlePriceText">PRECIO</string>
     <string name="order_table_titleTotalText">TOTAL</string>
+    <string name="order_info_subtotalText">Subtotal</string>
+    <string name="order_info_ivaText">IVA 16%</string>
+    <string name="order_info_totalText">TOTAL A PAGAR</string>
+    <string name="order_payText">Proceder al Pago</string>
 </resources>

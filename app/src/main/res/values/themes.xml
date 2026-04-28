@@ -27,4 +27,9 @@
     <style name="App.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/orange_indicator</item>
     </style>
+
+    <style name="App.BottomNav.TextAppearance" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:fontFamily">@font/lexend_medium</item>
+        <item name="fontFamily">@font/lexend_medium</item>
+    </style>
 </resources>

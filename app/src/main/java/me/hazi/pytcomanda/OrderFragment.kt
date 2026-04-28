@@ -15,6 +15,9 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import me.hazi.pytcomanda.data.MenuData
 import me.hazi.pytcomanda.model.MenuItem
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 class OrderFragment : Fragment(R.layout.order_fragment) {
 
@@ -28,7 +31,12 @@ class OrderFragment : Fragment(R.layout.order_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val currentDateTime = LocalDateTime.now()
+        val formatter = DateTimeFormatter.ofPattern("dd MMM yyyy, hh:mm a", Locale.getDefault())
+
+        val textOrderDate = view.findViewById<TextView>(R.id.txtOrderDate)
         populateTable(MenuData.items)
+        textOrderDate.text = currentDateTime.format(formatter)
     }
 
     fun populateTable(items: List<MenuItem>) {
